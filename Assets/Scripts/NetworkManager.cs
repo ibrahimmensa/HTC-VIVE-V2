@@ -57,7 +57,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         base.OnJoinRoomFailed(returnCode, message);
-        RoomOptions newRoom = new RoomOptions() { MaxPlayers = 4, IsVisible = true };
+        RoomOptions newRoom = new RoomOptions() { MaxPlayers = 5, IsVisible = true };
         PhotonNetwork.CreateRoom("1", newRoom, TypedLobby.Default);
     }
 
