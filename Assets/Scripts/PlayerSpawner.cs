@@ -19,7 +19,7 @@ public class PlayerSpawner : MonoBehaviour
         instantiatedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, pos, spawnPosition.transform.rotation);
         if (instantiatedPlayer.GetComponent<PhotonView>().IsMine)
         {
-            instantiatedPlayer.SetActive(false);
+            instantiatedPlayer.GetComponent<PlayerManager>().avatar.SetActive(false);
         }
     }
 

@@ -10,6 +10,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     void Start()
     {
         Debug.Log("Connecting");
+        PhotonNetwork.PhotonServerSettings.AppSettings.FixedRegion = "eu";
         PhotonNetwork.ConnectUsingSettings();
     }
 
