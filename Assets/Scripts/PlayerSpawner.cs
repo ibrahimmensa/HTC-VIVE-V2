@@ -9,13 +9,18 @@ public class PlayerSpawner : MonoBehaviour
     public float maxX, maxZ, minX, minZ;
     public Vector3 pos;
     public float xVal, zVal;
+    public GameObject instantiatedPlayer;
     // Start is called before the first frame update
     void Start()
     {
         xVal = Random.Range(minX, maxX);
         zVal = Random.Range(minZ, maxZ);
         pos = new Vector3(xVal, spawnPosition.transform.position.y, zVal);
-        PhotonNetwork.Instantiate(playerPrefab.name, pos, spawnPosition.transform.rotation);
+        instantiatedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, pos, spawnPosition.transform.rotation);
+        if (instantiatedPlayer.GetComponent<PhotonView>().IsMine)
+        {
+            instantiatedPlayer.SetActive(false);
+        }
     }
 
     // Update is called once per frame
